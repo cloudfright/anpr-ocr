@@ -1,0 +1,102 @@
+
+# https://hub.docker.com/r/paddlepaddle/paddle
+# https://github.com/Davidelanz/paddle_ocr_docker/blob/main/docker/cpu
+
+
+ RUN pip3 install --upgrade pip
+
+
+# RUN apt update && apt upgrade -y
+
+# apt list --all-versions python
+
+
+
+########################################################
+
+
+
+
+
+
+# Error - seems to be looking for python >= 3.8
+# Command "/usr/local/bin/python3 -m pip install --ignore-installed --no-user --prefix /tmp/pip-build-env-6k8okwn1 --no-warn-script-location --no-binary :none: --only-binary :none: -i https://pypi.org/simple -- setuptools wheel scikit-build cmake pip "numpy==1.11.3; python_version=='3.5'" "numpy==1.13.3; python_version=='3.6'" "numpy==1.14.5; python_version=='3.7'" "numpy==1.17.3; python_version>='3.8'"" failed with error code 2 in None
+# version install = 3.51
+
+
+# FROM ubuntu:22.04
+# FROM python:3.9.17-slim-bullseye
+
+# RUN apt update && apt upgrade -y
+# RUN apt install -y python3.8 python3-pip
+# sudo apt update && sudo apt upgrade
+
+# RUN pip install paddlepaddle -i https://mirror.baidu.com/pypi/simple
+# RUN pip install padd
+
+# RUN pip install --upgrade pip
+# RUN pip install pipenv
+
+# RUN adduser -D python
+
+# Create the work dir and set permissions as WORKDIR set the permissions as root
+# RUN mkdir /home/python/app/ && chown -R python:python /home/python/app
+# WORKDIR /home/python/app
+
+# USER python
+
+# RUN pip install --user pipenv
+
+# ENV PATH="/home/worker/.local/bin:${PATH}"
+
+# COPY --chown=python:python Pipfile Pipfile
+# RUN pipenv lock -r > requirements.txt
+# RUN pip install --user -r requirements.txt
+
+# COPY --chown=python:python . .
+
+# CMD ["python", "main.py"]
+
+
+# Linux Version (64 bit)
+# CentOS 7 (GPUVersion Supports CUDA 10.2/11.2/11.6/11.7)
+# Ubuntu 16.04/18.04/20.04/22.04 (GPUVersion Supports CUDA 10.2/11.2/11.6/11.7)
+# Python Version: 3.7/3.8/3.9/3.10 (64 bit)
+# pip or pip3 Version 20.2.2+ (64 bit)
+
+# Getting requirements to build wheel ... error
+#   ERROR: Command errored out with exit status 1:
+#    command: /usr/local/bin/python3 /usr/local/python3.5.1/lib/python3.5/site-packages/pip/_vendor/pep517/_in_process.py get_requires_for_build_wheel /tmp/tmpelu4xme6
+#        cwd: /tmp/pip-install-q_wcl2ew/onnx_c3ac8b998a7b4e7988d06bf21b4373c2
+#   Complete output (19 lines):
+#   Traceback (most recent call last):
+#     File "/usr/local/python3.5.1/lib/python3.5/site-packages/pip/_vendor/pep517/_in_process.py", line 280, in <module>
+#       main()
+#     File "/usr/local/python3.5.1/lib/python3.5/site-packages/pip/_vendor/pep517/_in_process.py", line 263, in main
+#       json_out['return_val'] = hook(**hook_input['kwargs'])
+#     File "/usr/local/python3.5.1/lib/python3.5/site-packages/pip/_vendor/pep517/_in_process.py", line 114, in get_requires_for_build_wheel
+#       return hook(config_settings)
+#     File "/tmp/pip-build-env-tqqnen8g/overlay/lib/python3.5/site-packages/setuptools/build_meta.py", line 150, in get_requires_for_build_wheel
+#       config_settings, requirements=['wheel'])
+#     File "/tmp/pip-build-env-tqqnen8g/overlay/lib/python3.5/site-packages/setuptools/build_meta.py", line 130, in _get_build_requires
+#       self.run_setup()
+#     File "/tmp/pip-build-env-tqqnen8g/overlay/lib/python3.5/site-packages/setuptools/build_meta.py", line 254, in run_setup
+#       self).run_setup(setup_script=setup_script)
+#     File "/tmp/pip-build-env-tqqnen8g/overlay/lib/python3.5/site-packages/setuptools/build_meta.py", line 145, in run_setup
+#       exec(compile(code, __file__, 'exec'), locals())
+#     File "setup.py", line 95
+#       raise RuntimeError(f"Can only cd to absolute path, got: {path}")
+#                                                                     ^
+#   SyntaxError: invalid syntax
+#   ----------------------------------------
+# WARNING: Discarding https://files.pythonhosted.org/packages/d2/f4/8bdd479ace89b7957231157cfdfec4be629e5bbbbebe21535d6c40df6d02/onnx-1.14.0.tar.gz#sha256=43b85087c6b919de66872a043c7f4899fe6f840e11ffca7e662b2ce9e4cc2927 (from https://pypi.org/simple/onnx/). Command errored out with exit status 1: /usr/local/bin/python3 /usr/local/python3.5.1/lib/python3.5/site-packages/pip/_vendor/pep517/_in_process.py get_requires_for_build_wheel /tmp/tmpelu4xme6 Check the logs for full command output.
+#   Downloading onnx-1.13.1.tar.gz (10.4 MB)
+#      |████████████████████████████████| 10.4 MB 7.3 MB/s 
+#   Installing build dependencies ... |
+
+
+
+
+#       error: command 'gcc' failed with exit status 1
+#     ----------------------------------------
+# ERROR: Command errored out with exit status 1: /usr/local/bin/python3 -u -c 'import sys, setuptools, tokenize; sys.argv[0] = '"'"'/tmp/pip-install-q_wcl2ew/pymupdf_37cf6adb826c46039b433e7bb2f7adab/setup.py'"'"'; __file__='"'"'/tmp/pip-install-q_wcl2ew/pymupdf_37cf6adb826c46039b433e7bb2f7adab/setup.py'"'"';f=getattr(tokenize, '"'"'open'"'"', open)(__file__);code=f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' install --record /tmp/pip-record-dvfgyjq8/install-record.txt --single-version-externally-managed --compile --install-headers /usr/local/python3.5.1/include/python3.5m/PyMuPDF Check the logs for full command output.
